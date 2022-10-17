@@ -1,0 +1,41 @@
+/*--------------------------------------------------------------
+# Site Header
+--------------------------------------------------------------*/
+
+/* Container
+--------------------------------------------- */
+
+.site-header > .container {
+  max-width: var(--max-width-full);
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Site Title
+--------------------------------------------- */
+
+.site-header .site-title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.site-header .site-title a {
+  content: url(../svg/logo.svg);
+  width: 150px;
+  height: auto;
+}
+
+/* Main Menu
+--------------------------------------------- */
+
+#main-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}

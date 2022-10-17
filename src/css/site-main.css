@@ -1,0 +1,33 @@
+/*--------------------------------------------------------------
+# Site Header
+--------------------------------------------------------------*/
+
+/* Container
+--------------------------------------------- */
+
+.site-main > .container {
+  max-width: var(--max-width-full);
+  margin: 0 auto;
+}
+
+/* Page Template Default
+--------------------------------------------- */
+
+.entry-header {
+    max-width: var(--max-width-default);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.entry-content {
+    max-width: var(--max-width-default);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.date {
+  max-width: var(--max-width-default);
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: var(--font-size-lg);
+}

@@ -1,6 +1,8 @@
 	<footer class="site-footer">
-		<div class="site-info">
-			C. 2022
+		<div class="container">
+			<div class="site-info">
+				C. 2022
+			</div>
 		</div>
 	</footer>
 	</div>

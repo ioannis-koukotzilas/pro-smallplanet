@@ -28,7 +28,7 @@ function monoscopic_setup()
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'monoscopic'),
+			'menu-1' => esc_html__('Main Menu', 'monoscopic'),
 		)
 	);
 
@@ -67,6 +67,9 @@ function monoscopic_scripts()
 	wp_enqueue_style('style', get_stylesheet_uri(), array(), MONOSCOPIC_VERSION);
 	wp_enqueue_style('normalize', get_template_directory_uri() . '/src/css/normalize.css', array(), MONOSCOPIC_VERSION);
 	wp_enqueue_style('app', get_template_directory_uri() . '/src/css/app.css', array(), MONOSCOPIC_VERSION);
+	wp_enqueue_style('site-header', get_template_directory_uri() . '/src/css/site-header.css', array(), MONOSCOPIC_VERSION);
+	wp_enqueue_style('site-main', get_template_directory_uri() . '/src/css/site-main.css', array(), MONOSCOPIC_VERSION);
+	wp_enqueue_style('site-footer', get_template_directory_uri() . '/src/css/site-footer.css', array(), MONOSCOPIC_VERSION);
 
 	// JS
 	wp_enqueue_script('app', get_template_directory_uri() . '/src/js/app.js', array(), MONOSCOPIC_VERSION, true);
@@ -82,3 +85,13 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+
+
+add_filter('perfmatters_lazyload_youtube_thumbnail_resolution', function($resolution) {
+	if(!wp_is_mobile()) {
+	$resolution = 'maxresdefault';
+	}
+	return $resolution;
+	});

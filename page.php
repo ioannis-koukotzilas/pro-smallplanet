@@ -2,14 +2,17 @@
 
 <main class="site-main">
 
-	<?php while (have_posts()) : the_post(); ?>
+	<div class="container">
 
-		<?php get_template_part('template-parts/content', 'page'); ?>
+		<?php while (have_posts()) : the_post(); ?>
 
-	<?php endwhile; ?>
+			<?php get_template_part('template-parts/content', 'page'); ?>
+
+		<?php endwhile; ?>
+
+	</div>
 
 </main>
 
 <?php
-get_sidebar();
 get_footer();

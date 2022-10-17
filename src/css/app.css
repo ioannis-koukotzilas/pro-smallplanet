@@ -26,7 +26,9 @@ html {
 
 /* Root */
 :root {
-  --font-default: 'Univers', sans-serif;
+  --font-default: 'Roboto', sans-serif;
+  --font-condensed: 'Roboto Condensed', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
 
   --font-size-xs: 0.64rem;
   --font-size-sm: 0.8rem;
@@ -38,19 +40,19 @@ html {
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  --bg-default: #ffffff;
+  --bg-default: #141414;
   --bg-secondary: #ccc;
   --bg-dark: #141414;
   --bg-accent: #70b5f9;
 
-  --text-default: #141414;
+  --text-default: #fff;
   --text-light: #eeeeee;
   --text-dark: #141414;
   --text-accent: #01a99e;
 
   --border-default: #ccc;
 
-  --max-width-default: 1140px;
+  --max-width-default: 840px;
   --max-width-full: 2560px;
 }
 
@@ -59,6 +61,8 @@ html {
 
 html {
   font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body,
@@ -79,11 +83,14 @@ h3,
 h4,
 h5,
 h6 {
-  clear: both;
+  font-family: var(--font-condensed);
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+  line-height: 100%;
 }
 
 p {
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 dfn,
@@ -165,6 +172,8 @@ table {
 /* Links
 --------------------------------------------- */
 a {
+  display: inline-block;
+  text-decoration: none;
   color: var(--text-default);
 }
 
