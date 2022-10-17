@@ -1,14 +1,26 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-	</header>
 
-	<!-- The Post Thumbnail -->
+	<?php if (has_post_thumbnail()) : ?>
+		<div class="cover">
+			<figure class="featured-image">
+				<?php the_post_thumbnail('large'); ?>
+			</figure>
+			<header class="entry-header">
+				<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+			</header>
+		</div>
+	<?php endif ?>
 
 
-	<?php $event_date = get_field('project_description'); ?>
-	<?php if ($event_date) : ?>
-		<div class="date"><?php echo esc_html($event_date); ?></div>
+
+
+
+
+
+
+	<?php $project_short_description = get_field('project_description'); ?>
+	<?php if ($project_short_description) : ?>
+		<div class="short-description"><?php echo esc_html($project_short_description); ?></div>
 	<?php endif; ?>
 
 	<div class="entry-content">
@@ -16,4 +28,3 @@
 	</div>
 
 </article>
-

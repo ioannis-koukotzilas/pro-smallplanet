@@ -156,8 +156,9 @@ object {
 }
 
 img {
+  display: block;
+  width: 100%;
   height: auto;
-  max-width: 100%;
 }
 
 figure {
@@ -275,4 +276,11 @@ select {
 
 textarea {
   width: 100%;
+}
+
+/* Layouts
+--------------------------------------------- */
+
+.site {
+  position: relative;
 }

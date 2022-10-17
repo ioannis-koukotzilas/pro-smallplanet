@@ -5,6 +5,8 @@
 
     <!-- The Post Thumbnail -->
 
+    <?php the_post_thumbnail('large'); ?>
+
     <div class="entry-content">
         <?php the_content(); ?>
     </div>
