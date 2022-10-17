@@ -1,34 +1,12 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package Monoscopic
- */
-
-?>
-
-	<footer id="colophon" class="site-footer">
+	<footer class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'monoscopic' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'monoscopic' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'monoscopic' ), 'monoscopic', '<a href="https://monoscopic.net">Ioannis Koukotzilas</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+			C. 2022
+		</div>
+	</footer>
+	</div>
 
-<?php wp_footer(); ?>
+	<?php wp_footer(); ?>
 
-</body>
-</html>
+	</body>
+
+	</html>
