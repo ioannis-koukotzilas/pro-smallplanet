@@ -21,14 +21,22 @@ html {
 # Base
 --------------------------------------------------------------*/
 
+/* Fonts
+--------------------------------------------- */
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/helvetica-neue/helvetica-neue-roman.woff2') format('woff2'), url('../fonts/helvetica-neue/helvetica-neue-roman.woff') format('woff');
+}
+
 /* Theme Variables
 --------------------------------------------- */
 
 /* Root */
 :root {
-  --font-default: 'Roboto', sans-serif;
-  --font-condensed: 'Roboto Condensed', sans-serif;
-  --font-mono: 'Roboto Mono', monospace;
+  --font-default: 'Helvetica Neue', sans-serif;
 
   --font-size-xs: 0.64rem;
   --font-size-sm: 0.8rem;
@@ -53,6 +61,7 @@ html {
   --border-default: #ccc;
 
   --max-width-default: 840px;
+  --max-width-large: 1440px;
   --max-width-full: 2560px;
 }
 
@@ -60,7 +69,7 @@ html {
 --------------------------------------------- */
 
 html {
-  font-size: 16px;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -73,8 +82,10 @@ optgroup,
 textarea {
   color: var(--text-default);
   font-family: var(--font-default);
+  font-weight: var(--font-weight-default);
   font-size: 1rem;
   line-height: 1.5;
+  letter-spacing: 0.05rem;
 }
 
 h1,
@@ -83,14 +94,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-condensed);
   margin: 1.5rem 0;
-  text-transform: uppercase;
-  line-height: 100%;
+  font-weight: var(--font-weight-default);
 }
 
 p {
-  margin: 1.5rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 dfn,
@@ -285,37 +294,37 @@ textarea {
   position: relative;
 }
 
-:is(vimeo-embed, youtube-embed) {
+:is(video-embed) {
   aspect-ratio: 16 / 9;
-  border-radius: var(--video-embed-bdrs, 0.25em);
   display: grid;
   inline-size: 100%;
   position: relative;
+  background-color: #ccc;
 }
 
-:is(vimeo-embed, youtube-embed) button {
-  background-color: var(--button-bgc, #000);
-  block-size: var(--button-h, 50px);
+:is(video-embed) button {
+  background-color: #000;
+  block-size: 4.5rem;
+  inline-size: 4.5rem;
   border: 0;
-  border-radius: var(--button-bdrs, 50%);
+  border-radius: 50%;
   display: grid;
-  inline-size: var(--button-w, 75px);
-  opacity: var(--button-op, 0.8);
+  opacity: 0.5;
   position: absolute;
   place-self: center;
   transition: all 0.2s ease-in;
 }
 
-:is(vimeo-embed, youtube-embed) button::before {
+:is(video-embed) button::before {
   aspect-ratio: 1;
   background: #fff;
-  block-size: 1.5em;
+  block-size: 2.25rem;
   clip-path: polygon(20% 0%, 20% 100%, 100% 50%);
   content: '';
   place-self: center;
 }
 
-:is(vimeo-embed, youtube-embed) :is(iframe, img) {
+:is(video-embed) :is(iframe, img) {
   block-size: 100%;
   border: 0;
   border-radius: inherit;
@@ -325,14 +334,21 @@ textarea {
   position: absolute;
 }
 
-:is(vimeo-embed, youtube-embed) iframe:not([src='']) + button {
+:is(video-embed) iframe:not([src='']) + button {
   display: none;
 }
 
-:is(vimeo-embed button) {
+:is(video-embed button) {
   --button-bgc: #00adef;
 }
 
-:is(vimeo-embed, youtube-embed):hover button {
+:is(video-embed):hover button {
   --button-op: 1;
+}
+
+
+.gal {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
