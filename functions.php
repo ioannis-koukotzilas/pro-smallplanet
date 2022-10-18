@@ -89,9 +89,9 @@ require get_template_directory() . '/inc/template-functions.php';
 
 
 
-add_filter('perfmatters_lazyload_youtube_thumbnail_resolution', function($resolution) {
-	if(!wp_is_mobile()) {
-	$resolution = 'maxresdefault';
-	}
-	return $resolution;
-	});
+// add_filter('perfmatters_lazyload_youtube_thumbnail_resolution', function($resolution) {
+// 	if(!wp_is_mobile()) {
+// 	$resolution = 'maxresdefault';
+// 	}
+// 	return $resolution;
+// 	});
