@@ -1,52 +1,64 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if (has_post_thumbnail()) : ?>
-		<figure class="featured-image">
-			<?php the_post_thumbnail('large'); ?>
-		</figure>
-	<?php endif ?>
 
+
+
+
+	<?php if (have_rows('project_video_group')) : ?>
+		<?php while (have_rows('project_video_group')) : the_row(); ?>
+			<?php $project_video_url = get_sub_field('project_video_url'); ?>
+			<!-- Entry Video -->
+			<?php if ($project_video_url) : ?>
+				<figure class="featured-video">
+					<div class="container">
+						<video-embed>
+							<?php if (has_post_thumbnail()) : ?>
+								<?php the_post_thumbnail('large'); ?>
+							<?php endif; ?>
+							<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen src="" data-src="<?php the_sub_field('project_video_url'); ?>?autoplay=1"></iframe>
+							<button aria-label="Play video"></button>
+						</video-embed>
+					</div>
+				</figure>
+				<!-- Featured Image -->
+			<?php elseif (has_post_thumbnail()) : ?>
+				<figure class="featured-image">
+					<div class="container">
+						<?php the_post_thumbnail('large'); ?>
+					</div>
+				</figure>
+			<?php endif; ?>
+		<?php endwhile; ?>
+	<?php endif; ?>
+
+	<!-- Entry Header -->
 	<header class="entry-header">
-		<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-		<h2>Παρουσίαση της Ιστορικής Βιβλιοθήκης του Ιδρύματος Αικατερίνης Λασκαρίδη</h2>
-		<div>Πελάτης: Ίδρυμα Αικατερίνης Λασκαρίδη</div>
-				<div>Διάρκεια: 11:51</div>
+		<div class="container">
+			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
+			<h2>Documentary on families impacted by Columbus police shootings part of Wexner Center film festival</h2>
+			<h3>Παρουσίαση της Ιστορικής Βιβλιοθήκης του Ιδρύματος Αικατερίνης Λασκαρίδη</h3>
+		</div>
 	</header>
 
+	<!-- Entry Content -->
 	<div class="entry-content">
-		
-			<?php the_content(); ?>
-			
-				
-			
-			
-			
-		
-		
+		<div class="container">
+			<div class="column-wrap">
+				<div class="col">
+					<?php the_content(); ?>
+				</div>
+				<div class="col">
+					<div>Πελάτης: Ίδρυμα Αικατερίνης Λασκαρίδη</div>
+					<div>Διάρκεια: 11:51</div>
+				</div>
+
+			</div>
+		</div>
 	</div>
 
 </article>
 
 
-<div class="entry-content">
-
-	<?php if (have_rows('project_video_group')) : ?>
-		<?php while (have_rows('project_video_group')) : the_row(); ?>
-			<?php $project_video_url = get_sub_field('project_video_url'); ?>
-			<?php if ($project_video_url) : ?>
-				<video-embed>
-					<?php $project_video_cover = get_sub_field('project_video_cover'); ?>
-					<?php if ($project_video_cover) : ?>
-						<?php echo wp_get_attachment_image($project_video_cover, 'full'); ?>
-					<?php endif; ?>
-					<iframe allow="autoplay" src="" data-src="<?php the_sub_field('project_video_url'); ?>?autoplay=1"></iframe>
-					<button aria-label="Play video"></button>
-				</video-embed>
-			<?php endif; ?>
-		<?php endwhile; ?>
-	<?php endif; ?>
-
-</div>
 
 
 

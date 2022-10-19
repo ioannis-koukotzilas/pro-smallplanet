@@ -36,40 +36,53 @@ html {
 
 /* Root */
 :root {
-  --font-default: 'Helvetica Neue', sans-serif;
+  --font-family-base: 'Helvetica Neue', sans-serif;
 
-  --font-size-xs: 0.64rem;
-  --font-size-sm: 0.8rem;
-  --font-size-md: 1.25rem;
-  --font-size-lg: 1.563rem;
-  --font-size-xl: 2.441rem;
+  --font-size-sm: 0.889rem;
+  --font-size-base: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 0.3419)), 1.125rem);
+  --font-size-md: clamp(1.125rem, calc(1.125rem + ((1vw - 0.234375rem) * 1.3046)), 1.602rem);
+  --font-size-lg: clamp(1.266rem, calc(1.266rem + ((1vw - 0.234375rem) * 1.466)), 1.802rem);
+  --font-size-xl: clamp(1.424rem, calc(1.424rem + ((1vw - 0.234375rem) * 1.6492)), 2.027rem);
 
-  --font-weight-default: 400;
+  /* Multiplication. At least one of the arguments must be a <number>. */
+  --letter-spacing-sm: calc(var(--font-size-sm) * 0.065);
+  --letter-spacing-base: 0.065rem;
+  --letter-spacing-md: calc(var(--font-size-md) * 0.065);
+  --letter-spacing-lg: calc(var(--font-size-lg) * 0.065);
+  --letter-spacing-xl: calc(var(--font-size-xl) * 0.065);
+
+  --font-weight-base: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  --bg-default: #141414;
-  --bg-secondary: #ccc;
+  --bg-base: #ffffff;
+  --bg-secondary: #f5f5f5;
   --bg-dark: #141414;
   --bg-accent: #70b5f9;
 
-  --text-default: #fff;
+  --text-base: #000000;
   --text-light: #eeeeee;
   --text-dark: #141414;
   --text-accent: #01a99e;
 
-  --border-default: #ccc;
+  --border-base: #ccc;
 
-  --max-width-default: 840px;
-  --max-width-large: 1440px;
+  --max-width-base: 720px;
+  --max-width-medium: 960px;
+  --max-width-large: 1140px;
+  --max-width-x-large: 1320px;
   --max-width-full: 2560px;
+
+ 
 }
+
+
 
 /* Typography
 --------------------------------------------- */
 
 html {
-  font-size: 18px;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -80,12 +93,12 @@ input,
 select,
 optgroup,
 textarea {
-  color: var(--text-default);
-  font-family: var(--font-default);
-  font-weight: var(--font-weight-default);
-  font-size: 1rem;
+  color: var(--text-base);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-base);
+  font-size: var(--font-size-base);
   line-height: 1.5;
-  letter-spacing: 0.05rem;
+  letter-spacing: var(--letter-spacing-base);
 }
 
 h1,
@@ -95,7 +108,39 @@ h4,
 h5,
 h6 {
   margin: 1.5rem 0;
-  font-weight: var(--font-weight-default);
+  font-weight: var(--font-weight-base);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: var(--font-size-xl);
+  letter-spacing: var(--letter-spacing-xl);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+  letter-spacing: var(--letter-spacing-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  letter-spacing: var(--letter-spacing-md);
+}
+
+h4 {
+  font-size: var(--font-size-base);
+  letter-spacing: var(--letter-spacing-base);
+}
+
+h5 {
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-sm);
+}
+
+h6 {
+  font-size: var(--font-size-sm);
+  letter-spacing: var(--letter-spacing-sm);
 }
 
 p {
@@ -120,11 +165,11 @@ address {
 /* Elements
 --------------------------------------------- */
 body {
-  background: var(--bg-default);
+  background: var(--bg-base);
 }
 
 hr {
-  background-color: var(--border-default);
+  background-color: var(--border-base);
   border: 0;
   height: 1px;
   margin-bottom: 1.5rem;
@@ -184,17 +229,17 @@ table {
 a {
   display: inline-block;
   text-decoration: none;
-  color: var(--text-default);
+  color: var(--text-base);
 }
 
 a:visited {
-  color: var(--text-default);
+  color: var(--text-base);
 }
 
 a:hover,
 a:focus,
 a:active {
-  color: var(--text-accent);
+  color: var(--text-base);
 }
 
 a:focus {
@@ -212,10 +257,10 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-  border: 1px solid var(--border-default);
+  border: 1px solid var(--border-base);
   border-radius: 3px;
   background: var(--bg-accent);
-  color: var(--text-default);
+  color: var(--text-base);
   line-height: 1;
   padding: 0.5rem 0.75rem;
 }
@@ -299,7 +344,7 @@ textarea {
   display: grid;
   inline-size: 100%;
   position: relative;
-  background-color: #ccc;
+  /* background-color: #ccc; */
 }
 
 :is(video-embed) button {
@@ -345,7 +390,6 @@ textarea {
 :is(video-embed):hover button {
   --button-op: 1;
 }
-
 
 .gal {
   display: grid;
