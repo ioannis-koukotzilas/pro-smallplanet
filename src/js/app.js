@@ -14,9 +14,9 @@ const swiper = new Swiper('.swiper', {
 
 
 
-  wrapperClass: 'products',
-  slideClass: 'product',
-  slidesPerView: 'auto',
+  // wrapperClass: 'products',
+  // slideClass: 'product',
+  // slidesPerView: 'auto',
   spaceBetween: 10,
   navigation: {
     nextEl: '.next',
@@ -47,7 +47,7 @@ const swiper = new Swiper('.swiper', {
   breakpoints: {
     // when window width is >= 640px
     640: {
-      slidesPerView: 2,
+      slidesPerView: 'auto',
       spaceBetween: 20,
     },
   },

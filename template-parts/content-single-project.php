@@ -35,7 +35,6 @@
 	<header class="entry-header">
 		<div class="container">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-			<h2>Documentary on families impacted by Columbus police shootings part of Wexner Center film festival</h2>
 			<h3>Παρουσίαση της Ιστορικής Βιβλιοθήκης του Ιδρύματος Αικατερίνης Λασκαρίδη</h3>
 		</div>
 	</header>
@@ -53,6 +52,7 @@
 				</div>
 
 			</div>
+			<h2>Στιγμιότυπα</h2>
 		</div>
 	</div>
 
