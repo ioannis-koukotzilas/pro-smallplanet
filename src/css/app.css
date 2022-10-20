@@ -31,12 +31,19 @@ html {
   src: url('../fonts/helvetica-neue/helvetica-neue-roman.woff2') format('woff2'), url('../fonts/helvetica-neue/helvetica-neue-roman.woff') format('woff');
 }
 
+@font-face {
+  font-family: 'Univers';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/univers/Univers-Next-Regular.woff2') format('woff2'), url('../fonts/univers/Univers-Next-Regular.woff') format('woff');
+}
+
 /* Theme Variables
 --------------------------------------------- */
 
 /* Root */
 :root {
-  --font-family-base: 'Helvetica Neue', sans-serif;
+  --font-family-base: 'Univers', sans-serif;
 
   --font-size-sm: 0.889rem;
   --font-size-base: clamp(1rem, calc(1rem + ((1vw - 0.234375rem) * 0.3419)), 1.125rem);
@@ -45,11 +52,11 @@ html {
   --font-size-xl: clamp(1.424rem, calc(1.424rem + ((1vw - 0.234375rem) * 1.6492)), 2.027rem);
 
   /* Multiplication. At least one of the arguments must be a <number>. */
-  --letter-spacing-sm: calc(var(--font-size-sm) * 0.065);
-  --letter-spacing-base: 0.065rem;
-  --letter-spacing-md: calc(var(--font-size-md) * 0.065);
-  --letter-spacing-lg: calc(var(--font-size-lg) * 0.065);
-  --letter-spacing-xl: calc(var(--font-size-xl) * 0.065);
+  --letter-spacing-sm: calc(var(--font-size-sm) * 0.05);
+  --letter-spacing-base: 0.05rem;
+  --letter-spacing-md: calc(var(--font-size-md) * 0.05);
+  --letter-spacing-lg: calc(var(--font-size-lg) * 0.05);
+  --letter-spacing-xl: calc(var(--font-size-xl) * 0.05);
 
   --font-weight-base: 400;
   --font-weight-medium: 500;
@@ -58,12 +65,12 @@ html {
   --bg-base: #ffffff;
   --bg-secondary: #f5f5f5;
   --bg-dark: #141414;
-  --bg-accent: #70b5f9;
+  --bg-accent: #3399ff;
 
   --text-base: #000000;
   --text-light: #eeeeee;
   --text-dark: #141414;
-  --text-accent: #01a99e;
+  --text-accent: #3399ff;
 
   --border-base: #ccc;
 
@@ -357,12 +364,13 @@ textarea {
   opacity: 0.5;
   position: absolute;
   place-self: center;
-  transition: all 0.2s ease-in;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 :is(video-embed) button::before {
   aspect-ratio: 1;
-  background: #fff;
+  background-color: #fff;
   block-size: 2.25rem;
   clip-path: polygon(20% 0%, 20% 100%, 100% 50%);
   content: '';
@@ -383,16 +391,9 @@ textarea {
   display: none;
 }
 
-:is(video-embed button) {
-  --button-bgc: #00adef;
+
+
+:is(video-embed) button:hover {
+  opacity: 1;
 }
 
-:is(video-embed):hover button {
-  --button-op: 1;
-}
-
-.gal {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-}

@@ -1,6 +1,12 @@
+.site-footer {
+    font-size: var(--font-size-sm);
+}
+
 .site-footer > .container {
-    max-width: var(--max-width-full);
+    max-width: var(--max-width-medium);
     margin: 0 auto;
-    padding: 1.5rem 20px;
-    border-top: 1px solid var(--border-default);
+    padding: 4.5rem 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }

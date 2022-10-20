@@ -1,3 +1,5 @@
+// Video
+
 document.querySelectorAll(':is(video-embed) button').forEach((button) =>
   button.addEventListener('click', () => {
     const video = button.previousElementSibling;
@@ -8,15 +10,10 @@ document.querySelectorAll(':is(video-embed) button').forEach((button) =>
 );
 
 
+// Swiper
 
 const swiper = new Swiper('.swiper', {
-  // Optional parameters
-
-
-
-  // wrapperClass: 'products',
-  // slideClass: 'product',
-  // slidesPerView: 'auto',
+  
   spaceBetween: 10,
   navigation: {
     nextEl: '.next',
@@ -24,30 +21,31 @@ const swiper = new Swiper('.swiper', {
   },
 
 
-
-  // If we need pagination
+  // Disable preloading of all images
+  watchSlidesVisibility: true,
+  preloadImages: false,
+  lazy: false,
+  
   pagination: {
     el: '.swiper-pagination',
+    type: 'bullets',
   },
 
-  // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
+
+ 
   freeMode: {
     enabled: true,
   },
-  // Responsive breakpoints
+
   breakpoints: {
-    // when window width is >= 640px
+    
     640: {
-      slidesPerView: 'auto',
+      slidesPerView: 1,
       spaceBetween: 20,
     },
   },

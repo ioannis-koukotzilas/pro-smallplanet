@@ -1,41 +1,38 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-
-
-
-
-	<?php if (have_rows('project_video_group')) : ?>
-		<?php while (have_rows('project_video_group')) : the_row(); ?>
-			<?php $project_video_url = get_sub_field('project_video_url'); ?>
-			<!-- Entry Video -->
-			<?php if ($project_video_url) : ?>
-				<figure class="featured-video">
-					<div class="container">
-						<video-embed>
-							<?php if (has_post_thumbnail()) : ?>
-								<?php the_post_thumbnail('large'); ?>
-							<?php endif; ?>
-							<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen src="" data-src="<?php the_sub_field('project_video_url'); ?>?autoplay=1"></iframe>
-							<button aria-label="Play video"></button>
-						</video-embed>
-					</div>
-				</figure>
-				<!-- Featured Image -->
-			<?php elseif (has_post_thumbnail()) : ?>
-				<figure class="featured-image">
-					<div class="container">
+	<?php $featured_video_url = get_field('featured_video_url'); ?>
+	<?php if ($featured_video_url) : ?>
+		<!-- Featured Video -->
+		<figure class="featured-video">
+			<div class="container">
+				<video-embed>
+					<?php if (has_post_thumbnail()) : ?>
 						<?php the_post_thumbnail('large'); ?>
-					</div>
-				</figure>
-			<?php endif; ?>
-		<?php endwhile; ?>
+					<?php endif; ?>
+					<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen src="" data-src="<?php the_field('featured_video_url'); ?>?autoplay=1"></iframe>
+					<button aria-label="Play video"></button>
+				</video-embed>
+			</div>
+		</figure>
+
+	<?php elseif (has_post_thumbnail()) : ?>
+		<!-- Featured Image -->
+		<figure class="featured-image">
+			<div class="container">
+				<?php the_post_thumbnail('large'); ?>
+			</div>
+		</figure>
 	<?php endif; ?>
+
 
 	<!-- Entry Header -->
 	<header class="entry-header">
 		<div class="container">
 			<?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-			<h3>Παρουσίαση της Ιστορικής Βιβλιοθήκης του Ιδρύματος Αικατερίνης Λασκαρίδη</h3>
+			<?php $project_short_description = get_field('project_short_description'); ?>
+			<?php if ($project_short_description) : ?>
+				<h3 class="project-short-description"><?php the_field('project_short_description'); ?></h3>
+			<?php endif ?>
 		</div>
 	</header>
 
@@ -48,44 +45,50 @@
 				</div>
 				<div class="col">
 					<div>Πελάτης: Ίδρυμα Αικατερίνης Λασκαρίδη</div>
-					<div>Διάρκεια: 11:51</div>
+					<?php $project_duration = get_field('project_duration'); ?>
+					<?php if ($project_duration) : ?>
+						<div class="project-duration"><?php esc_html_e('Διάρκεια', 'monoscopic'); ?>: <?php the_field('project_duration'); ?></div>
+					<?php endif ?>
 				</div>
 
 			</div>
-			<h2>Στιγμιότυπα</h2>
 		</div>
 	</div>
 
+	<!-- Entry Gallery -->
+	<section class="entry-gallery">
+		<div class="container">
+			<h2 class="section-title">
+				<?php esc_html_e('Στιγμιότυπα', 'monoscopic'); ?>
+			</h2>
+
+			<!-- Slider main container -->
+			<div class="swiper">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+					<!-- Slides -->
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-3.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-2.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-4.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-5.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-6.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-7.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-8.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-9.png" alt=""></div>
+					<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-10.png" alt=""></div>
+
+				</div>
+				
+				<!-- Navigation -->
+				<div class="swiper-navigation">
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
 </article>
 
-
-
-
-
-<!-- Slider main container -->
-<div class="swiper">
-	<!-- Additional required wrapper -->
-	<div class="swiper-wrapper">
-		<!-- Slides -->
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-2.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-3.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-4.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-5.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-6.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-7.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-8.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-9.png" alt=""></div>
-		<div class="swiper-slide"><img src="http://localhost/pro.smallplanet/wp-content/uploads/2022/10/Istoriki-Vivliothiki-10.png" alt=""></div>
-
-
-	</div>
-	<!-- If we need pagination -->
-	<div class="swiper-pagination"></div>
-
-	<!-- If we need navigation buttons -->
-	<div class="swiper-button-prev"></div>
-	<div class="swiper-button-next"></div>
-
-	<!-- If we need scrollbar -->
-	<div class="swiper-scrollbar"></div>
-</div>
+<?php recent_projects(); ?>
